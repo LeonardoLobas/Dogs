@@ -1,9 +1,13 @@
 import React from "react";
+import "./App.css";
+import Api from "./API/Api";
 
 const App = () => {
     return (
         <>
-            <div></div>
+            <div>
+                <Api />
+            </div>
         </>
     );
 };
