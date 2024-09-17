@@ -12,6 +12,8 @@ import {
     RouterProvider,
     Routes,
 } from "react-router-dom";
+import LoginForm from "./Components/Login/LoginForm";
+import LoginCreate from "./Components/Login/LoginCreate";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -27,6 +29,16 @@ const App = () => {
                 {
                     path: "/login",
                     element: <Login />,
+                    children: [
+                        {
+                            path: "/login",
+                            element: <LoginForm />,
+                        },
+                    ],
+                },
+                {
+                    path: "/login/criar",
+                    element: <LoginCreate />,
                 },
             ],
         },
