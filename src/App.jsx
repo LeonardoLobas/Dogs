@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import LoginForm from "./Components/Login/LoginForm";
 import LoginCreate from "./Components/Login/LoginCreate";
+import { UserContext, UserStorage } from "./Usercontext";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -21,7 +22,9 @@ const App = () => {
             path: "/",
             element: (
                 <>
-                    <Header /> <Outlet /> <Footer />
+                    <UserStorage>
+                        <Header /> <Outlet /> <Footer />
+                    </UserStorage>
                 </>
             ),
             children: [
