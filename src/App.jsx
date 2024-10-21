@@ -37,11 +37,11 @@ const App = () => {
                             path: "/login",
                             element: <LoginForm />,
                         },
+                        {
+                            path: "/login/criar",
+                            element: <LoginCreate />,
+                        },
                     ],
-                },
-                {
-                    path: "/login/criar",
-                    element: <LoginCreate />,
                 },
             ],
         },
