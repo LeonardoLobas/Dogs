@@ -15,6 +15,8 @@ import {
 import LoginForm from "./Components/Login/LoginForm";
 import LoginCreate from "./Components/Login/LoginCreate";
 import { UserContext, UserStorage } from "./Usercontext";
+import User from "./Components/User/User";
+import ProtectedRoute from "./Components/Helper/ProtectedRoute";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -43,11 +45,15 @@ const App = () => {
                         },
                     ],
                 },
+                {
+                    path: "conta/*",
+                    element: (
+                        <ProtectedRoute>
+                            <User />
+                        </ProtectedRoute>
+                    ),
+                },
             ],
-        },
-        {
-            path: "*",
-            element: <>Ai não lobinho </>,
         },
     ]);
     return (
