@@ -17,6 +17,9 @@ import LoginCreate from "./Components/Login/LoginCreate";
 import { UserContext, UserStorage } from "./Usercontext";
 import User from "./Components/User/User";
 import ProtectedRoute from "./Components/Helper/ProtectedRoute";
+import Feed from "./Components/Feed/Feed";
+import UserPhotoPost from "./Components/User/UserPhotoPost";
+import UserStats from "./Components/User/UserStats";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -30,7 +33,10 @@ const App = () => {
                 </>
             ),
             children: [
-                { path: "/", element: <Home /> },
+                {
+                    path: "/",
+                    element: <Home />,
+                },
                 {
                     path: "/login",
                     element: <Login />,
@@ -52,6 +58,11 @@ const App = () => {
                             <User />
                         </ProtectedRoute>
                     ),
+                    children: [
+                        { path: "", element: <Feed /> },
+                        { path: "postar", element: <UserPhotoPost /> },
+                        { path: "estatisticas", element: <UserStats /> },
+                    ],
                 },
             ],
         },
