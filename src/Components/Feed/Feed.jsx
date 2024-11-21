@@ -2,7 +2,7 @@ import React from "react";
 import FeedModal from "./FeedModal";
 import FeedPhotos from "./FeedPhotos";
 
-const Feed = ({ user, data }) => {
+const Feed = ({ user }) => {
     const [modalPhoto, setModalPhoto] = React.useState(null);
 
     return (
