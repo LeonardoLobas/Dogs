@@ -21,6 +21,7 @@ import Feed from "./Components/Feed/Feed";
 import UserPhotoPost from "./Components/User/UserPhotoPost";
 import UserStats from "./Components/User/UserStats";
 import Photo from "./Components/Photo/Photo";
+import UserProfile from "./Components/User/UserProfile";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -66,6 +67,7 @@ const App = () => {
                     ],
                 },
                 { path: "/foto/:id", element: <Photo /> },
+                { path: "/perfil/:user", element: <UserProfile /> },
             ],
         },
     ]);
