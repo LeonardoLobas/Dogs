@@ -22,6 +22,7 @@ import UserPhotoPost from "./Components/User/UserPhotoPost";
 import UserStats from "./Components/User/UserStats";
 import Photo from "./Components/Photo/Photo";
 import UserProfile from "./Components/User/UserProfile";
+import NotFound from "./Components/NotFound";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -51,6 +52,7 @@ const App = () => {
                             path: "/login/criar",
                             element: <LoginCreate />,
                         },
+                        { path: "*", element: <NotFound /> },
                     ],
                 },
                 {
@@ -64,10 +66,12 @@ const App = () => {
                         { path: "", element: <Feed /> },
                         { path: "postar", element: <UserPhotoPost /> },
                         { path: "estatisticas", element: <UserStats /> },
+                        { path: "*", element: <NotFound /> },
                     ],
                 },
                 { path: "/foto/:id", element: <Photo /> },
                 { path: "/perfil/:user", element: <UserProfile /> },
+                { path: "*", element: <NotFound /> },
             ],
         },
     ]);
