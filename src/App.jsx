@@ -20,6 +20,7 @@ import ProtectedRoute from "./Components/Helper/ProtectedRoute";
 import Feed from "./Components/Feed/Feed";
 import UserPhotoPost from "./Components/User/UserPhotoPost";
 import UserStats from "./Components/User/UserStats";
+import Photo from "./Components/Photo/Photo";
 
 const App = () => {
     const route = createBrowserRouter([
@@ -64,6 +65,7 @@ const App = () => {
                         { path: "estatisticas", element: <UserStats /> },
                     ],
                 },
+                { path: "/foto/:id", element: <Photo /> },
             ],
         },
     ]);
