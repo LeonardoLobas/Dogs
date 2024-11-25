@@ -25,56 +25,61 @@ import UserProfile from "./Components/User/UserProfile";
 import NotFound from "./Components/NotFound";
 
 const App = () => {
-    const route = createBrowserRouter([
+    const route = createBrowserRouter(
+        [
+            {
+                path: "/",
+                element: (
+                    <>
+                        <UserStorage>
+                            <Header /> <Outlet /> <Footer />
+                        </UserStorage>
+                    </>
+                ),
+                children: [
+                    {
+                        path: "/",
+                        element: <Home />,
+                    },
+                    {
+                        path: "/login",
+                        element: <Login />,
+                        children: [
+                            {
+                                path: "/login",
+                                element: <LoginForm />,
+                            },
+                            {
+                                path: "/login/criar",
+                                element: <LoginCreate />,
+                            },
+                            { path: "*", element: <NotFound /> },
+                        ],
+                    },
+                    {
+                        path: "conta/*",
+                        element: (
+                            <ProtectedRoute>
+                                <User />
+                            </ProtectedRoute>
+                        ),
+                        children: [
+                            { path: "", element: <Feed /> },
+                            { path: "postar", element: <UserPhotoPost /> },
+                            { path: "estatisticas", element: <UserStats /> },
+                            { path: "*", element: <NotFound /> },
+                        ],
+                    },
+                    { path: "/foto/:id", element: <Photo /> },
+                    { path: "/perfil/:user", element: <UserProfile /> },
+                    { path: "*", element: <NotFound /> },
+                ],
+            },
+        ],
         {
-            path: "/",
-            element: (
-                <>
-                    <UserStorage>
-                        <Header /> <Outlet /> <Footer />
-                    </UserStorage>
-                </>
-            ),
-            children: [
-                {
-                    path: "/",
-                    element: <Home />,
-                },
-                {
-                    path: "/login",
-                    element: <Login />,
-                    children: [
-                        {
-                            path: "/login",
-                            element: <LoginForm />,
-                        },
-                        {
-                            path: "/login/criar",
-                            element: <LoginCreate />,
-                        },
-                        { path: "*", element: <NotFound /> },
-                    ],
-                },
-                {
-                    path: "conta/*",
-                    element: (
-                        <ProtectedRoute>
-                            <User />
-                        </ProtectedRoute>
-                    ),
-                    children: [
-                        { path: "", element: <Feed /> },
-                        { path: "postar", element: <UserPhotoPost /> },
-                        { path: "estatisticas", element: <UserStats /> },
-                        { path: "*", element: <NotFound /> },
-                    ],
-                },
-                { path: "/foto/:id", element: <Photo /> },
-                { path: "/perfil/:user", element: <UserProfile /> },
-                { path: "*", element: <NotFound /> },
-            ],
-        },
-    ]);
+            basename: "/Dogs/",
+        }
+    );
     return (
         <div>
             <RouterProvider router={route} />
