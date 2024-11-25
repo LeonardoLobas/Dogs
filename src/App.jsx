@@ -27,7 +27,7 @@ import NotFound from "./Components/NotFound";
 const App = () => {
     const route = createBrowserRouter([
         {
-            path: "/",
+            path: "Dogs",
             element: (
                 <>
                     <UserStorage>
